@@ -1,5 +1,6 @@
 package com.project.Shoes.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,6 +20,7 @@ public class Person {
     private String name;
     private String lastname;
 
-    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "client"/*, cascade = CascadeType.ALL, orphanRemoval = true*/)
+    @JsonIgnore
     private List<Address> addresses;
 }
