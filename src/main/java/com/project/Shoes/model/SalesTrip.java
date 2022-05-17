@@ -13,15 +13,11 @@ import java.util.List;
 @Data
 
 @Entity
-public class Person {
-
+public class SalesTrip {
     @Id
-    private String dni;
-    private String name;
-    private String lastname;
-
-    @OneToMany(mappedBy = "person"/*, cascade = CascadeType.ALL, orphanRemoval = true*/)
-    @JsonIgnore
-    private List<Address> addresses;
-
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+    @OneToMany(mappedBy = "salesTrip"/*, cascade = CascadeType.ALL, orphanRemoval = true*/)
+    private List<User> users;
+    private String car;
 }

@@ -22,11 +22,11 @@ public class Address {
 
     //DB relations
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.EAGER) //Eager o Lazzy
     @JoinColumn(name = "location_id") //FK de location
     private Location location;
     @ManyToOne()
     //@JsonIgnore
-    @JoinColumn(name = "dni") //FK cliente
-    private Client client; //porque el cliente puede tener muchas direcciones
+    @JoinColumn(name = "dni") //FK persona
+    private Person person; //porque el person puede tener muchas direcciones
 }
