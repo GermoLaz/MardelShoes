@@ -21,7 +21,7 @@ public class Card {
     private String code; //hasheado con endpoint especial
     private String name;
 
-    @OneToOne(fetch = FetchType.EAGER) //Eager o Lazzy
-    @JoinColumn(name = "dni") //FK cliente
-    private Client client;
+    @OneToOne(fetch = FetchType.EAGER) //Eager o Lazzy?
+    @JoinColumn(name = "dni") //FK cliente_dni
+    private String clientDni;
 }

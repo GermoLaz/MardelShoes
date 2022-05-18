@@ -13,11 +13,18 @@ import java.util.List;
 @Data
 
 @Entity
-public class SalesTrip {
-    @Id
+public class Model {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @OneToMany(mappedBy = "salesTrip"/*, cascade = CascadeType.ALL, orphanRemoval = true*/)
-    private List<User> users;
-    private String car;
+    @Id
+    private String modelCode;
+    private String description;
+
+    @ManyToOne
+    @JoinColumn(name = "brand_code")
+    private String brand;
+
+    @OneToMany(mappedBy = "modelCode"/*, cascade = CascadeType.ALL, orphanRemoval = true*/)
+    @JsonIgnore
+    private List<Product> products;
 }

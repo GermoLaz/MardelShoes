@@ -1,6 +1,5 @@
-package com.project.Shoes.model;
+/*package com.project.Shoes.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,16 +12,17 @@ import java.util.List;
 @Data
 
 @Entity
-public class TripStock {
+public class TripDetail {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @OneToMany(mappedBy = "tripStock"/*, cascade = CascadeType.ALL, orphanRemoval = true*/)
+    private Integer stock;
+    @OneToMany(mappedBy = "tripDetail", cascade = CascadeType.ALL, orphanRemoval = true)
     //@JsonIgnore
     private List<Product> products;
     @ManyToOne()
     @JoinColumn(name = "salesTrip_id")
-    private SalesTrip salesTrip;
-    private Integer stock;
+    private Integer tripHeaderId;
 
 }
+*/

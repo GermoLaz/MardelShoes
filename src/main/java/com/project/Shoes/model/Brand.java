@@ -13,15 +13,14 @@ import java.util.List;
 @Data
 
 @Entity
-public class Person {
-
+public class Brand {
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     @Id
-    private String dni;
-    private String name;
-    private String lastname;
+    private String brandCode;
+    private String description;
 
-    @OneToMany(mappedBy = "personDni"/*, cascade = CascadeType.ALL, orphanRemoval = true*/)
+    @OneToMany(mappedBy = "brand"/*, cascade = CascadeType.ALL, orphanRemoval = true*/)
     @JsonIgnore
-    private List<Address> addresses;
-
+    private List<Model> models;
 }

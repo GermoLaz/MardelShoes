@@ -20,13 +20,14 @@ public class Location {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id; //primary key de location
     private String description;
+
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "province_id") //FK de location
-    private Province province;
+    private Integer provinceId;
 
     //DATABASE RELATIONS
     //no tiene la @joinColumn porque la location no tiene address. (ES ADDRESS la que contiene una location)
-    @OneToOne(mappedBy = "location", cascade = CascadeType.ALL, orphanRemoval = true) // mapeado por el atributo "LOCATION" que es la foreign key de la location en Address
+    @OneToOne(mappedBy = "locationId"/*, cascade = CascadeType.ALL, orphanRemoval = true*/) // mapeado por el atributo "LOCATION" que es la foreign key de la location en Address
     private Address address;
 
 }
