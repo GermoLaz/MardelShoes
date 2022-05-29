@@ -22,11 +22,7 @@ public class User extends Person {
     private String userName;
     private String password;
 
-   /* @ManyToOne()
-    @JoinColumn(name = "dni")
-    private TripHeader tripHeader;
-    */
-   @OneToMany(mappedBy = "userDni")
+   @OneToMany(mappedBy = "user")
    @JsonIgnore
    private List<SaleHeader> salesList;
 

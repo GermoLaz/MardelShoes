@@ -21,13 +21,14 @@ public class Location {
     private Integer id; //primary key de location
     private String description;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne()
     @JoinColumn(name = "province_id") //FK de location
-    private Integer provinceId;
+    private Province province;
 
     //DATABASE RELATIONS
     //no tiene la @joinColumn porque la location no tiene address. (ES ADDRESS la que contiene una location)
-    @OneToOne(mappedBy = "locationId"/*, cascade = CascadeType.ALL, orphanRemoval = true*/) // mapeado por el atributo "LOCATION" que es la foreign key de la location en Address
+    @OneToOne(mappedBy = "location"/*, cascade = CascadeType.ALL, orphanRemoval = true*/) // mapeado por el atributo "LOCATION" que es la foreign key de la location en Address
+    @JsonIgnore
     private Address address;
 
 }

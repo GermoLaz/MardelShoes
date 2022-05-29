@@ -23,5 +23,5 @@ public class Card {
 
     @OneToOne(fetch = FetchType.EAGER) //Eager o Lazzy?
     @JoinColumn(name = "dni") //FK cliente_dni
-    private String clientDni;
+    private Client client;
 }

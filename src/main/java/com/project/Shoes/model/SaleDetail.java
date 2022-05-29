@@ -18,11 +18,11 @@ public class SaleDetail {
 
     @OneToOne()
     @JoinColumn(name = "product_code")
-    private String productCode;
+    private Product product;
 
     @ManyToOne()
     @JoinColumn(name = "salesHeader_id")
-    private Integer salesHeaderId;
+    private SaleHeader salesHeader;
 
 
 

@@ -20,7 +20,7 @@ public class Person {
     private String name;
     private String lastname;
 
-    @OneToMany(mappedBy = "personDni"/*, cascade = CascadeType.ALL, orphanRemoval = true*/)
+    @OneToMany(mappedBy = "person"/*, cascade = CascadeType.ALL, orphanRemoval = true*/)
     @JsonIgnore
     private List<Address> addresses;
 

@@ -1,13 +1,13 @@
 package com.project.Shoes.service;
 
 import com.project.Shoes.model.Address;
-import com.project.Shoes.model.Client;
 import com.project.Shoes.repository.AddressRepository;
-import com.project.Shoes.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
+
+import java.util.List;
 
 @Service
 public class AddressService {
@@ -22,8 +22,8 @@ public class AddressService {
         return addressRepository.save(address);
     }
 
-    public Address findAllByClient(String dni) {
-        return addressRepository.findAllByClient(dni);
+    public List<Address> findAllByClient(String dni) {
+        return addressRepository.findAllByPersonDni(dni);
 
     }
 }

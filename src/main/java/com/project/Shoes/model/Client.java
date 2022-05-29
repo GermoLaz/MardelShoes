@@ -19,10 +19,10 @@ public class Client extends Person {
 
     private String phone;
 
-    @OneToOne(mappedBy = "clientDni", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToOne(mappedBy = "client", cascade = CascadeType.ALL, orphanRemoval = true)
     private Card card;
 
-    @OneToMany(mappedBy = "clientDni")
+    @OneToMany(mappedBy = "client")
     private List<SaleHeader> shoppingList;
 
 }

@@ -21,13 +21,13 @@ public class SaleHeader {
 
     @ManyToOne()
     @JoinColumn(name = "client_dni")
-    private String clientDni;
+    private Client client;
 
     @ManyToOne()
     @JoinColumn(name = "user_dni") // user = seller
-    private String userDni;
+    private User user;
 
-    @OneToMany(mappedBy = "salesHeaderId")
+    @OneToMany(mappedBy = "salesHeader")
     private List<SaleDetail> items;
 
 

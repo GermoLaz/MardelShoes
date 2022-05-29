@@ -6,6 +6,7 @@ import com.project.Shoes.service.AddressService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -25,7 +26,7 @@ public class AddressController {
     }
 
     @GetMapping("/dni/{dni}")//arreglar
-    public Address findAllByClient(@PathVariable String dni){
+    public List<Address> findAllByPerson(@PathVariable String dni){
         return addressService.findAllByClient(dni);
     }
 }

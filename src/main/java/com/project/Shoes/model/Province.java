@@ -1,5 +1,6 @@
 package com.project.Shoes.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,6 +18,7 @@ public class Province {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String description;
-    @OneToOne(mappedBy = "provinceId")
+    @OneToOne(mappedBy = "province")
+    @JsonIgnore
     private Location location;
 }

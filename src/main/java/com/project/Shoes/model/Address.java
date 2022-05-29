@@ -24,10 +24,9 @@ public class Address {
 
     @OneToOne(fetch = FetchType.EAGER) //Eager o Lazzy
     @JoinColumn(name = "location_id") //FK de location
-    private Integer locationId;
+    private Location location;
 
     @ManyToOne()
-    //@JsonIgnore
     @JoinColumn(name = "dni") //FK persona
-    private String personDni; //porque el person puede tener muchas direcciones
+    private Person person; //porque el person puede tener muchas direcciones
 }
