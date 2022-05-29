@@ -22,9 +22,9 @@ public class Model {
 
     @ManyToOne
     @JoinColumn(name = "brand_code")
-    private String brand;
+    private Brand brand;
 
-    @OneToMany(mappedBy = "modelCode"/*, cascade = CascadeType.ALL, orphanRemoval = true*/)
+    @OneToMany(mappedBy = "model")
     @JsonIgnore
     private List<Product> products;
 }
