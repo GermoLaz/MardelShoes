@@ -13,7 +13,7 @@ public class ClientService {
     private ClientRepository clientRepository;
 
     public Client findByDni(String dni) {
-        return clientRepository.findById(dni).orElseThrow(() -> new HttpClientErrorException(HttpStatus.NOT_FOUND, ""));
+        return clientRepository.findByDni(dni);
     }
 
     public Client add(Client client) {
