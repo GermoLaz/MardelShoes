@@ -1,19 +1,18 @@
 package com.project.Shoes.service;
 
 import com.project.Shoes.model.Client;
-import com.project.Shoes.repository.ClientRepository;
+import com.project.Shoes.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.HttpClientErrorException;
 
 @Service
 public class ClientService {
     @Autowired
-    private ClientRepository clientRepository;
+    private PersonRepository clientRepository;
 
     public Client findByDni(String dni) {
-        return clientRepository.findByDni(dni);
+        Client client = (Client) clientRepository.findByDni(dni);
+        return client;
     }
 
     public Client add(Client client) {

@@ -14,8 +14,8 @@ import javax.persistence.*;
 @Entity
 public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
     @Id
+    private Integer id;
     private String productCode;
     private String description;
     private Integer stock;

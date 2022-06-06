@@ -25,6 +25,7 @@ public class Client extends Person {
     private Card card;
 
     @OneToMany(mappedBy = "client")
+    @JsonIgnore
     private List<SaleHeader> shoppingList;
 
 }
