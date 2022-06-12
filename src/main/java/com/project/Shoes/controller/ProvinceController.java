@@ -4,6 +4,7 @@ import com.project.Shoes.model.Province;
 import com.project.Shoes.service.ProvinceService;
 import com.project.Shoes.util.PostResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -13,12 +14,17 @@ public class ProvinceController {
     private ProvinceService provinceService;
 
     @PostMapping("/")
-    public PostResponse add(@RequestBody final Province province){
+    public ResponseEntity add(@RequestBody final Province province){
         return provinceService.add(province);
     }
 
     @GetMapping("/{id}")
-    public Province findById(@PathVariable Integer id){
+    public ResponseEntity<Province> findById(@PathVariable Integer id){
         return provinceService.findById(id);
+    }
+
+    @GetMapping("/")
+    public ResponseEntity<Province> findByDescription(@RequestParam String description){
+        return provinceService.findByDescription(description);
     }
 }

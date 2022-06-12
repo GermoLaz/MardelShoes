@@ -3,6 +3,7 @@ package com.project.Shoes.controller;
 import com.project.Shoes.model.Address;
 import com.project.Shoes.model.Location;
 import com.project.Shoes.service.LocationService;
+import com.project.Shoes.util.PostResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,7 +14,7 @@ public class LocationController {
     private LocationService locationService;
 
     @PostMapping("/")
-    public Location add(@RequestBody final Location location){
+    public PostResponse add(@RequestBody final Location location){
         return locationService.add(location);
     }
 

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface AddressRepository  extends JpaRepository<Address, Integer> { // Tipo de dato que se postea , y PK
+public interface AddressRepository extends JpaRepository<Address, Integer> { // Tipo de dato que se postea , y PK
     //@Query("SELECT * FROM ADDRESS WHERE DNI = ?1")
     List<Address> findAllByPersonDni(String dni);//corregir
 }
