@@ -1,4 +1,4 @@
-package com.project.Shoes.Exception;
+package com.project.Shoes.exception;
 
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeName;

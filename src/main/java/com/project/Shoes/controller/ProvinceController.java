@@ -2,10 +2,11 @@ package com.project.Shoes.controller;
 
 import com.project.Shoes.model.Province;
 import com.project.Shoes.service.ProvinceService;
-import com.project.Shoes.util.PostResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.HttpClientErrorException;
+import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 @RequestMapping("/province")
@@ -14,7 +15,7 @@ public class ProvinceController {
     private ProvinceService provinceService;
 
     @PostMapping("/")
-    public ResponseEntity add(@RequestBody final Province province){
+    public ResponseEntity add(@RequestBody final Province province) {
         return provinceService.add(province);
     }
 

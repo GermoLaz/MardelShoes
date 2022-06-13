@@ -1,8 +1,10 @@
 package com.project.Shoes.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.CascadeType;
@@ -14,7 +16,8 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-
+@JsonTypeName("client")
+@EqualsAndHashCode(callSuper = true)
 @Entity
 public class Client extends Person {
 
