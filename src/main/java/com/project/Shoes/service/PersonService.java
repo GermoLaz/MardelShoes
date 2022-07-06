@@ -19,7 +19,8 @@ public class PersonService {
 
     public ResponseEntity<Person> findByDni(String dni) {
         Person person = personRepository.findByDni(dni);
-        return person == null ? ResponseEntity.status(HttpStatus.NOT_FOUND).build() : ResponseEntity.status(HttpStatus.OK).body(person);
+        return person == null ? ResponseEntity.status(HttpStatus.NO_CONTENT
+        ).build() : ResponseEntity.status(HttpStatus.OK).body(person);
     }
 
     public ResponseEntity add(Person person) {

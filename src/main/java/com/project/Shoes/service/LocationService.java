@@ -33,6 +33,6 @@ public class LocationService {
 
     public ResponseEntity<Location> findByDescription(String description){
         Location location = locationRepository.findByDescription(description);
-        return location == null ? ResponseEntity.status(HttpStatus.NOT_FOUND).build() : ResponseEntity.status(HttpStatus.OK).body(location);
+        return location == null ? ResponseEntity.status(HttpStatus.NO_CONTENT).build() : ResponseEntity.status(HttpStatus.OK).body(location);
     }
 }

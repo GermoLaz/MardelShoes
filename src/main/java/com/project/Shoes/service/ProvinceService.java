@@ -38,6 +38,6 @@ public class ProvinceService {
 
     public ResponseEntity<Province> findByDescription(String description){
         Province province = provinceRepository.findByDescription(description);
-        return province == null ? ResponseEntity.status(HttpStatus.NOT_FOUND).build() : ResponseEntity.status(HttpStatus.OK).body(province);
+        return province == null ? ResponseEntity.status(HttpStatus.NO_CONTENT).build() : ResponseEntity.status(HttpStatus.OK).body(province);
     }
 }
