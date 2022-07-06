@@ -27,9 +27,6 @@ public class ProvinceService {
 
     public ResponseEntity add(Province province) throws HttpClientErrorException{
         if(findByDescription(province.getDescription()).getBody() != null){
-            //throw new ResponseStatusException(HttpStatus.CONFLICT, "Province Already Exist");
-            //return ResponseEntity.status(HttpStatus.CONFLICT)
-                    //.body(new ErrorBody("Province Already Exist", 409));
             throw new HttpClientErrorException(HttpStatus.CONFLICT, "Province Already Exist");
         }
         return ResponseEntity.status(HttpStatus.CREATED)

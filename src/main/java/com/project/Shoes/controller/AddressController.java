@@ -4,6 +4,7 @@ import com.project.Shoes.model.Address;
 import com.project.Shoes.repository.AddressRepository;
 import com.project.Shoes.service.AddressService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,17 +17,17 @@ public class AddressController {
     AddressService addressService;
 
     @PostMapping("/")
-    public Address add(@RequestBody final Address address){
+    public ResponseEntity add(@RequestBody final Address address){
         return addressService.add(address);
     }
 
     @GetMapping("/{id}")
-    public Address findById(@PathVariable Integer id){
+    public ResponseEntity<Address> findById(@PathVariable Integer id){
         return addressService.findById(id);
     }
 
     @GetMapping("/dni/{dni}")//arreglar
-    public List<Address> findAllByPerson(@PathVariable String dni){
+    public ResponseEntity<List<Address>> findAllByPerson(@PathVariable String dni){
         return addressService.findAllByClient(dni);
     }
 }
