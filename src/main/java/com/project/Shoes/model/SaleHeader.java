@@ -1,5 +1,6 @@
 package com.project.Shoes.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -28,6 +29,7 @@ public class SaleHeader {
     private User user;
 
     @OneToMany(mappedBy = "salesHeader")
+    @JsonIgnore
     private List<SaleDetail> items;
 
 
