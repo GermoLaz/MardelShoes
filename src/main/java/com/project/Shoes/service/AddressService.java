@@ -27,8 +27,9 @@ public class AddressService {
         if(findByStreetAndNumber(address.getStreet(), address.getNumber()).getBody() != null)
             throw new HttpClientErrorException(HttpStatus.CONFLICT, "Address Already Exist");
 
+        Address addr = addressRepository.save(address);
         return ResponseEntity.status(HttpStatus.CREATED)
-                .location(buildURL("PATH",addressRepository.save(address).getId().toString())).build(); //.header()
+                .location(buildURL("PATH",addr.getId().toString())).build(); //.header()
     }
 
     public ResponseEntity<Address> findByStreetAndNumber(String street, String number){

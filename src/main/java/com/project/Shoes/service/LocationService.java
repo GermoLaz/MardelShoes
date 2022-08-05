@@ -22,7 +22,7 @@ public class LocationService {
 
     public ResponseEntity add(Location location) {
         if (findByDescription(location.getDescription()).getBody() != null){
-            throw new HttpClientErrorException(HttpStatus.CONFLICT, "Province Already Exist");
+            throw new HttpClientErrorException(HttpStatus.CONFLICT, "Location Already Exist");
         }
         Location loc = locationRepository.save(location);
         return ResponseEntity.status(HttpStatus.CREATED)
