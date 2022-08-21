@@ -30,7 +30,7 @@ public class ProvinceService {
             throw new HttpClientErrorException(HttpStatus.CONFLICT, "Province Already Exist");
         }
         return ResponseEntity.status(HttpStatus.CREATED)
-                .location(buildURL("PATH",provinceRepository.save(province).getId().toString())).build(); //.header()
+                .location(buildURL(PATH,provinceRepository.save(province).getId().toString())).build(); //.header()
     }
 
     public ResponseEntity<Province> findByDescription(String description){
