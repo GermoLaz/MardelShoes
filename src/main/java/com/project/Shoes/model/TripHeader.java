@@ -1,4 +1,4 @@
-/*package com.project.Shoes.model;
+package com.project.Shoes.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,12 +16,13 @@ public class TripHeader {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String car;
+
+    @ManyToOne()
+    @JoinColumn(name = "user_dni") //FK de user
+    private User user;
 
 
-    private List<User> users;
-
-    @OneToMany(mappedBy = "tripHeaderId", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<TripDetail> tripDetails;
+    @OneToMany(mappedBy = "tripHeader")
+    private List<TripDetail> tripDetailList;
 }
-*/
+

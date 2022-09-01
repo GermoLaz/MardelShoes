@@ -17,8 +17,11 @@ public class SaleHeader {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private Double totalAmount;
-    private Integer paymentInstallments;
+    private Double installmentAmount;
+    private Integer paymentInstallments; // cantidad cuotas
+    private Integer paidInstallments; // cuotas pagas
+    private boolean isActive;
+
 
     @ManyToOne()
     @JoinColumn(name = "client_dni")

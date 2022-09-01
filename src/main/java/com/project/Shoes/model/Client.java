@@ -22,6 +22,10 @@ import java.util.List;
 public class Client extends Person {
 
     private String phone;
+    private String occupation;
+    private String workingHours;
+    private String paymentDate;
+    private boolean debtor;
 
     @JsonIgnore
     @OneToOne(mappedBy = "client", cascade = CascadeType.ALL, orphanRemoval = true)

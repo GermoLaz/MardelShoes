@@ -16,8 +16,10 @@ public class LocationService {
     @Autowired
     LocationRepository locationRepository;
 
-    public Location findById(Integer id) {
-        return locationRepository.findById(id).orElseThrow(() -> new HttpClientErrorException(HttpStatus.NOT_FOUND, ""));
+    public ResponseEntity<Location> findById(Integer id) {
+        Location location = locationRepository.findById(id).orElseThrow(() -> new HttpClientErrorException(HttpStatus.NOT_FOUND, ""));
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(location);
     }
 
     public ResponseEntity add(Location location) {

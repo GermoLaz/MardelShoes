@@ -29,4 +29,8 @@ public class Product {
     @OneToOne(mappedBy = "product")
     @JsonIgnore
     private SaleDetail saleDetail;
+
+    @OneToOne(mappedBy = "product")
+    @JsonIgnore
+    private TripDetail tripDetail;
 }

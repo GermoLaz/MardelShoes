@@ -16,10 +16,12 @@ public class Card {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String number; //hasheado con endpoint especial
-    private String last4Numbers;
+    //private String last4Numbers;
     private String expirationDate;
-    private String code; //hasheado con endpoint especial
+    //private String code; //hasheado con endpoint especial
     private String name;
+    private String bank;
+    private String type; //debit, credit
 
     @OneToOne(fetch = FetchType.EAGER) //Eager o Lazzy?
     @JoinColumn(name = "dni") //FK cliente_dni

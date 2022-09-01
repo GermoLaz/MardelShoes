@@ -25,9 +25,11 @@ public class User extends Person {
     private String userName;
     private String password;
 
-   @OneToMany(mappedBy = "user")
-   @JsonIgnore
-   private List<SaleHeader> salesList;
+    @OneToMany(mappedBy = "user")
+    @JsonIgnore
+    private List<SaleHeader> salesList;
 
-
+    @OneToMany(mappedBy = "user")
+    @JsonIgnore
+    private List<TripHeader> tripHeaderList;
 }

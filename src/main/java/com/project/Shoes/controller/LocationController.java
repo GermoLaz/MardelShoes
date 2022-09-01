@@ -18,7 +18,7 @@ public class LocationController {
     }
 
     @GetMapping("/{id}")
-    public Location findById(@PathVariable Integer id){
+    public ResponseEntity<Location> findById(@PathVariable Integer id){
         return locationService.findById(id);
     }
 
