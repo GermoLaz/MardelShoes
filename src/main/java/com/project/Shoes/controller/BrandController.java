@@ -3,6 +3,7 @@ package com.project.Shoes.controller;
 import com.project.Shoes.model.Brand;
 import com.project.Shoes.service.BrandService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -12,12 +13,12 @@ public class BrandController {
     private BrandService brandService;
 
     @PostMapping("/")
-    public Brand add(@RequestBody final Brand brand){
+    public ResponseEntity add(@RequestBody final Brand brand){
         return brandService.add(brand);
     }
 
     @GetMapping("/{brandCode}")
-    public Brand findByBrandCode(@PathVariable String brandCode){
+    public ResponseEntity<Brand> findByBrandCode(@PathVariable String brandCode){
         return brandService.findByBrandCode(brandCode);
     }
 }
