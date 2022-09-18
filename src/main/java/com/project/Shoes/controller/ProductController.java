@@ -3,6 +3,7 @@ package com.project.Shoes.controller;
 import com.project.Shoes.model.Product;
 import com.project.Shoes.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -12,12 +13,12 @@ public class ProductController {
     private ProductService productService;
 
     @PostMapping("/")
-    public Product add(@RequestBody final Product product){
+    public ResponseEntity add(@RequestBody final Product product){
         return productService.add(product);
     }
 
     @GetMapping("/{productCode}")
-    public Product findByProductCode(@PathVariable String productCode){
+    public ResponseEntity<Product> findByProductCode(@PathVariable String productCode){
         return productService.findByProductCode(productCode);
     }
 }

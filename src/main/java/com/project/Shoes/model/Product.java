@@ -20,7 +20,6 @@ public class Product {
     private String description;
     private Integer stock;
     private String size;
-    private Double price;
 
     @ManyToOne()
     @JoinColumn(name = "model_code")
