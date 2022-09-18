@@ -13,7 +13,7 @@ import static com.project.Shoes.util.EntityURLBuilder.buildURL;
 
 @Service
 public class TripHeaderService {
-    private final String PATH = "card";
+    private final String PATH = "tripHeader";
     @Autowired
     TripHeaderRepository tripHeaderRepository;
 
@@ -22,12 +22,9 @@ public class TripHeaderService {
     }
 
     public ResponseEntity add(TripHeader tripHeader) {
-        if (findById(tripHeader.getId()).getBody() != null){
-            throw new HttpClientErrorException(HttpStatus.CONFLICT, "SaleHeader Already Exist");
-        }
         TripHeader tripHeaderAux = tripHeaderRepository.save(tripHeader);
 
         return ResponseEntity.status(HttpStatus.CREATED)
-                .location(buildURL( PATH, tripHeader.getId().toString())).build();
+                .location(buildURL( PATH, tripHeaderAux.getId().toString())).build();
     }
 }

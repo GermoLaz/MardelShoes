@@ -9,7 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/saleHeader")
+@RequestMapping("/tripHeader")
 public class TripHeaderController {
     @Autowired
     private TripHeaderService tripHeaderService;

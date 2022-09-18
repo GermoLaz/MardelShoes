@@ -1,5 +1,6 @@
 package com.project.Shoes.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,7 +22,7 @@ public class TripHeader {
     @JoinColumn(name = "user_dni") //FK de user
     private User user;
 
-
+    @JsonIgnore
     @OneToMany(mappedBy = "tripHeader")
     private List<TripDetail> tripDetailList;
 }

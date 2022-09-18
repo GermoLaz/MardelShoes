@@ -21,8 +21,8 @@ public class SaleDetail {
     private Product product;
 
     @ManyToOne()
-    @JoinColumn(name = "salesHeader_id")
-    private SaleHeader salesHeader;
+    @JoinColumn(name = "saleHeader_id")
+    private SaleHeader saleHeader;
 
 
 

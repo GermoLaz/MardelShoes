@@ -1,8 +1,6 @@
 package com.project.Shoes.controller;
 
-import com.project.Shoes.model.SaleDetail;
 import com.project.Shoes.model.SaleHeader;
-import com.project.Shoes.service.SaleDetailService;
 import com.project.Shoes.service.SaleHeaderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

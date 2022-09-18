@@ -25,13 +25,13 @@ public class SaleHeader {
 
     @ManyToOne()
     @JoinColumn(name = "client_dni")
-    private Client client;
+    private Person client;
 
     @ManyToOne()
     @JoinColumn(name = "user_dni") // user = seller
-    private User user;
+    private Person user;
 
-    @OneToMany(mappedBy = "salesHeader")
+    @OneToMany(mappedBy = "saleHeader")
     @JsonIgnore
     private List<SaleDetail> items;
 

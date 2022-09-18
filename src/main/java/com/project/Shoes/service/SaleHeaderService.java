@@ -12,7 +12,7 @@ import static com.project.Shoes.util.EntityURLBuilder.buildURL;
 
 @Service
 public class SaleHeaderService {
-    private final String PATH = "card";
+    private final String PATH = "saleHeader";
     @Autowired
     SaleHeaderRepository saleHeaderRepository;
 
@@ -21,9 +21,6 @@ public class SaleHeaderService {
     }
 
     public ResponseEntity add(SaleHeader saleHeader) {
-        if (findById(saleHeader.getId()).getBody() != null){
-            throw new HttpClientErrorException(HttpStatus.CONFLICT, "SaleHeader Already Exist");
-        }
         SaleHeader saleHeaderAux = saleHeaderRepository.save(saleHeader);
 
         return ResponseEntity.status(HttpStatus.CREATED)

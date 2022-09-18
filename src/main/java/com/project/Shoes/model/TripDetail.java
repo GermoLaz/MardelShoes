@@ -22,7 +22,7 @@ public class TripDetail {
     private Product product;
 
     @ManyToOne()
-    @JoinColumn(name = "tripHeader_id")
+    @JoinColumn(name = "tripHeaderId")
     private TripHeader tripHeader;
 
 }

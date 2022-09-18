@@ -19,7 +19,7 @@ public class SaleDetailService {
     SaleDetailRepository saleDetailRepository;
 
     public ResponseEntity<List<SaleDetail>> findBySaleHeaderId(Integer id) {
-        List<SaleDetail> saleDetailList= saleDetailRepository.findBySaleHeaderId(id);
+        List<SaleDetail> saleDetailList= saleDetailRepository.findAllBySaleHeaderId(id);
         return saleDetailList.isEmpty() ? ResponseEntity.status(HttpStatus.NO_CONTENT).build() : ResponseEntity.status(HttpStatus.OK).body(saleDetailList);
     }
 

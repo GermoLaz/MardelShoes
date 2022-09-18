@@ -16,7 +16,7 @@ public class AddressController {
 
     @PostMapping("/")
     public ResponseEntity add(@RequestBody final Address address){
-        return addressService.add(address);// no me reciibe el person desde postman, ver que pasa
+        return addressService.add(address);
     }
 
     @GetMapping("/{id}")
