@@ -1,6 +1,7 @@
 package com.project.Shoes.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import lombok.AllArgsConstructor;
@@ -26,8 +27,8 @@ public class Person {
     private String name;
     private String lastname;
 
-    @OneToMany(mappedBy = "person"/*, cascade = CascadeType.ALL, orphanRemoval = true*/)
-    @JsonIgnore
-    private List<Address> addresses;
+    @OneToMany(mappedBy = "person")
+    @JsonManagedReference(value="person-address")
+    private List<Address> addressesList;
 
 }

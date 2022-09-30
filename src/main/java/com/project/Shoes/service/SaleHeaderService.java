@@ -8,6 +8,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
 
+import java.util.List;
+
 import static com.project.Shoes.util.EntityURLBuilder.buildURL;
 
 @Service
@@ -16,14 +18,20 @@ public class SaleHeaderService {
     @Autowired
     SaleHeaderRepository saleHeaderRepository;
 
-    public ResponseEntity<SaleHeader> findById(Integer id) {
-        return ResponseEntity.status(HttpStatus.OK).body(saleHeaderRepository.findById(id).orElseThrow(() -> new HttpClientErrorException(HttpStatus.NOT_FOUND, "")));
-    }
-
     public ResponseEntity add(SaleHeader saleHeader) {
         SaleHeader saleHeaderAux = saleHeaderRepository.save(saleHeader);
 
         return ResponseEntity.status(HttpStatus.CREATED)
                 .location(buildURL( PATH, saleHeaderAux.getId().toString())).build();
     }
+    public ResponseEntity<SaleHeader> findById(Integer id) {
+        return ResponseEntity.status(HttpStatus.OK).body(saleHeaderRepository.findById(id).orElseThrow(() -> new HttpClientErrorException(HttpStatus.NOT_FOUND, "")));
+    }
+
+    /*public ResponseEntity<List<SaleHeader>> findAll() {
+        return  ResponseEntity
+    }*/
+
+
 }
+
