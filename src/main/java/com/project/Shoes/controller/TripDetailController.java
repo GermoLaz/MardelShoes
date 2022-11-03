@@ -22,8 +22,8 @@ public class TripDetailController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<List<TripDetail>> findByTripHeaderId(@PathVariable Integer id){
-        return tripDetailService.findByTripHeaderId(id);
+    public ResponseEntity<TripDetail> findById(@PathVariable Integer id){
+        return tripDetailService.findById(id);
     }
 }
 

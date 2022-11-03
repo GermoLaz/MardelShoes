@@ -1,6 +1,7 @@
 package com.project.Shoes.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -26,10 +27,10 @@ public class User extends Person {
     private String password;
 
     @OneToMany(mappedBy = "user")
-    @JsonIgnore
-    private List<SaleHeader> salesList;
+    @JsonManagedReference(value = "user-salesList")
+    private List<SaleHeader> saleHeaderList;
 
     @OneToMany(mappedBy = "user")
-    @JsonIgnore
+    @JsonManagedReference(value = "user-tripHeaderList")
     private List<TripHeader> tripHeaderList;
 }

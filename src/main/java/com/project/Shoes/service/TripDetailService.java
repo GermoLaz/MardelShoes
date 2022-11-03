@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.HttpClientErrorException;
 
 import java.util.List;
 
@@ -17,9 +18,8 @@ public class TripDetailService {
     @Autowired
     TripDetailRepository tripDetailRepository;
 
-    public ResponseEntity<List<TripDetail>> findByTripHeaderId(Integer id) {
-        List<TripDetail> saleDetailList= tripDetailRepository.findByTripHeaderId(id);
-        return saleDetailList.isEmpty() ? ResponseEntity.status(HttpStatus.NO_CONTENT).build() : ResponseEntity.status(HttpStatus.OK).body(saleDetailList);
+    public ResponseEntity<TripDetail> findById(Integer id) {
+        return ResponseEntity.status(HttpStatus.OK).body(tripDetailRepository.findById(id).orElseThrow(() -> new HttpClientErrorException(HttpStatus.NOT_FOUND, "")));
     }
 
     public ResponseEntity add(TripDetail tripDetail) {

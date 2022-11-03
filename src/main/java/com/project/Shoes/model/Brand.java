@@ -1,6 +1,7 @@
 package com.project.Shoes.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,6 +22,6 @@ public class Brand {
     private String description;
 
     @OneToMany(mappedBy = "brand"/*, cascade = CascadeType.ALL, orphanRemoval = true*/)
-    @JsonIgnore
+    @JsonManagedReference(value="model-brand")
     private List<Model> models;
 }

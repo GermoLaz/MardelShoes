@@ -1,6 +1,8 @@
 package com.project.Shoes.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,13 +25,14 @@ public class Product {
 
     @ManyToOne()
     @JoinColumn(name = "model_code")
+    @JsonBackReference(value="model-products")
     private Model model;  //brand adidas = ad , model predator = pr , size = N26 (Niño talle 26)  => modelCode = ADPRN26
 
     @OneToOne(mappedBy = "product")
-    @JsonIgnore
+    @JsonManagedReference(value = "product-saleDetail")
     private SaleDetail saleDetail;
 
     @OneToOne(mappedBy = "product")
-    @JsonIgnore
+    @JsonManagedReference(value = "product-tripDetail")
     private TripDetail tripDetail;
 }

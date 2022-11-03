@@ -1,5 +1,7 @@
 package com.project.Shoes.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,10 +21,12 @@ public class TripDetail {
 
     @OneToOne()
     @JoinColumn(name = "product_code")
+    @JsonBackReference(value = "product-tripDetail")
     private Product product;
 
     @ManyToOne()
     @JoinColumn(name = "tripHeaderId")
+    @JsonBackReference(value = "tripHeader-tripDetail")
     private TripHeader tripHeader;
 
 }

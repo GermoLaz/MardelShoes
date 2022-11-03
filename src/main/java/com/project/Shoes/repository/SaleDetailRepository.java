@@ -9,5 +9,5 @@ import java.util.List;
 
 @Repository
 public interface SaleDetailRepository extends JpaRepository<SaleDetail, Integer> {
-    List<SaleDetail> findAllBySaleHeaderId(Integer id);
+
 }

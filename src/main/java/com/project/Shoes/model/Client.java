@@ -1,6 +1,8 @@
 package com.project.Shoes.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -27,12 +29,12 @@ public class Client extends Person {
     private String paymentDate;
     private boolean debtor;
 
-    @JsonIgnore
     @OneToOne(mappedBy = "client", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference(value = "client-card")
     private Card card;
 
     @OneToMany(mappedBy = "client")
-    @JsonIgnore
+    @JsonManagedReference(value="client-saleHeader")
     private List<SaleHeader> shoppingList;
 
 }

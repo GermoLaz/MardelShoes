@@ -23,8 +23,8 @@ public class SaleDetailController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<List<SaleDetail>> findBySaleHeaderId(@PathVariable Integer id){
-        return saleDetailService.findBySaleHeaderId(id);
+    public ResponseEntity<SaleDetail> findBySaleDetailId(@PathVariable Integer id){
+        return saleDetailService.findById(id);
     }
 }
 

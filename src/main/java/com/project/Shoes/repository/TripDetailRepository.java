@@ -9,5 +9,5 @@ import java.util.List;
 
 @Repository
 public interface TripDetailRepository extends JpaRepository<TripDetail, Integer> {
-    List<TripDetail> findByTripHeaderId(Integer id);
+
 }

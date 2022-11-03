@@ -18,9 +18,8 @@ public class SaleDetailService {
     @Autowired
     SaleDetailRepository saleDetailRepository;
 
-    public ResponseEntity<List<SaleDetail>> findBySaleHeaderId(Integer id) {
-        List<SaleDetail> saleDetailList= saleDetailRepository.findAllBySaleHeaderId(id);
-        return saleDetailList.isEmpty() ? ResponseEntity.status(HttpStatus.NO_CONTENT).build() : ResponseEntity.status(HttpStatus.OK).body(saleDetailList);
+    public ResponseEntity<SaleDetail> findById(Integer id) {
+        return ResponseEntity.status(HttpStatus.OK).body(saleDetailRepository.findById(id).orElseThrow(() -> new HttpClientErrorException(HttpStatus.NOT_FOUND, "")));
     }
 
     public ResponseEntity add(SaleDetail saleDetail) {
