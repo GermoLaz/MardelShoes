@@ -28,7 +28,8 @@ public class LocationService {
         }
         Location loc = locationRepository.save(location);
         return ResponseEntity.status(HttpStatus.CREATED)
-                .location(buildURL( PATH, loc.getId().toString())).build(); //.header()
+                .location(buildURL( PATH, loc.getId().toString()))
+                .build(); //.header()
     }
 
     public ResponseEntity<Location> findByDescription(String description){

@@ -22,7 +22,9 @@ public class SaleHeaderService {
         SaleHeader saleHeaderAux = saleHeaderRepository.save(saleHeader);
 
         return ResponseEntity.status(HttpStatus.CREATED)
-                .location(buildURL( PATH, saleHeaderAux.getId().toString())).build();
+                .body(saleHeaderAux);
+
+                //.location(buildURL( PATH, saleHeaderAux.getId().toString())).build()
     }
     public ResponseEntity<SaleHeader> findById(Integer id) {
         return ResponseEntity.status(HttpStatus.OK).body(saleHeaderRepository.findById(id).orElseThrow(() -> new HttpClientErrorException(HttpStatus.NOT_FOUND, "")));
